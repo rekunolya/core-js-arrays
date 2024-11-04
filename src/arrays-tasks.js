@@ -22,6 +22,9 @@
  */
 function getIntervalArray(/* start, end */) {
   throw new Error('Not implemented');
+  // const length = end - start + 1;
+  // const arr = Array.from({ length: length }, (_, index) => index + 1);
+  // return arr;
 }
 
 /**
@@ -53,8 +56,8 @@ function sumArrays(/* arr1, arr2 */) {
  *    findElement(['Array', 'Number', 'string'], 'Date') => -1
  *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  return arr.indexOf(value);
 }
 
 /**
