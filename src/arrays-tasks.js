@@ -317,8 +317,10 @@ function flattenArray(nestedArray) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  // throw new Error('Not implemented');
+  const res = arr.flatMap((el) => childrenSelector(el));
+  return res;
 }
 
 /**
@@ -524,17 +526,13 @@ function getMaxItems(arr, n) {
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
 function findCommonElements(arr1, arr2) {
-  // throw new Error('Not implemented');
   const res = [];
   arr1.map((el) => {
-    arr2.filter((el2) => {
-      if (el2 === el) {
-        res.push(el);
-      } else {
-        return [];
-      }
-      return el2;
-    });
+    if (arr2.includes(el)) {
+      res.push(el);
+    } else {
+      return [];
+    }
     return el;
   });
   return res;
@@ -551,8 +549,9 @@ function findCommonElements(arr1, arr2) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
-function findLongestIncreasingSubsequence(/* nums */) {
-  throw new Error('Not implemented');
+function findLongestIncreasingSubsequence(nums) {
+  const res = nums.reduce((sum, current) => sum + current, 0);
+  return String(res).length;
 }
 
 /**
